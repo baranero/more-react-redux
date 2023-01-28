@@ -9,15 +9,11 @@ const CartButton = (props) => {
   const dispatch = useDispatch()
 
   const showCart = () => {
-    if (!isShown) {
-      dispatch(cartShowActions.isNotEmpty())
-    }
-    if (isShown) {
       dispatch(cartShowActions.isEmpty())
     }
       
     
-}
+
   return (
     <button onClick={showCart} className={classes.button}>
       <span>My Cart</span>

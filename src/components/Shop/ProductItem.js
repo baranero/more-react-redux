@@ -4,12 +4,12 @@ import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
 
 const ProductItem = (props) => {
-  const { title, price, description } = props;
+  const { title, price, description, id } = props;
 
   const dispatch = useDispatch()
 
   const incrementAmount = () => {
-    dispatch(amountActions.increment())
+    dispatch(amountActions.increment({ id, title, price }))
   }
 
   return (

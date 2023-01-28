@@ -3,17 +3,17 @@ import { amountActions } from '../../store/amount';
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
-  const { title, quantity, total, price } = props.item;
+  const { title, quantity, total, price, id } = props.item;
 
   const dispatch = useDispatch()
   const amount = useSelector(state => state.amount.amount)
 
   const incrementAmount = () => {
-    dispatch(amountActions.increment())
+    dispatch(amountActions.increment({ id, title, price }))
   }
 
   const decrementAmount = () => {
-    dispatch(amountActions.decrement())
+    dispatch(amountActions.decrement(id))
   }
 
   return (

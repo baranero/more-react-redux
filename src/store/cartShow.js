@@ -9,10 +9,7 @@ const cartShowSlice = createSlice({
   initialState: initialCartShowState,
   reducers: {
     isEmpty(state) {
-      state.isShown = false
-    },
-    isNotEmpty(state) {
-      state.isShown = true
+      state.isShown = !state.isShown
     }
   }
 })
