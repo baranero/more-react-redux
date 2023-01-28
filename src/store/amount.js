@@ -6,6 +6,10 @@ const amountSlice = createSlice({
   name: 'amount',
   initialState: initialAmountState,
   reducers: {
+    replaceCart(state, action) {
+      state.amount = action.payload.amount
+      state.items = action.payload.items
+    },
     increment(state, action) {
       const newItem = action.payload
       const existingItem = state.items.find(item => item.id === newItem.id)

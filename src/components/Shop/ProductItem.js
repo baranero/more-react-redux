@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { amountActions } from '../../store/amount';
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
@@ -9,6 +9,7 @@ const ProductItem = (props) => {
   const dispatch = useDispatch()
 
   const incrementAmount = () => {
+
     dispatch(amountActions.increment({ id, title, price }))
   }
 
