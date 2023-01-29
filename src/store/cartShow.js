@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialCartShowState = {
-  isShown: false
+  isShown: false,
+  notification: null
 }
 
 const cartShowSlice = createSlice({
@@ -10,6 +11,13 @@ const cartShowSlice = createSlice({
   reducers: {
     isEmpty(state) {
       state.isShown = !state.isShown
+    },
+    showNotification(state, action) {
+      state.notification = { 
+        status: action.payload.status,
+        title: action.payload.title,
+        message: action.payload.message
+      }
     }
   }
 })
