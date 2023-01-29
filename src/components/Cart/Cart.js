@@ -6,7 +6,6 @@ import CartItem from './CartItem';
 const Cart = (props) => {
 
   const cartItems = useSelector(state => state.amount.items)
-  const price = 6
 
   return (
     <Card className={classes.cart}>
