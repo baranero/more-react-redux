@@ -15,7 +15,10 @@ export const fetchCartData = () => {
         }
         try {
             const cartData = await fetchData()
-            dispatch(amountActions.replaceCart(cartData))
+            dispatch(amountActions.replaceCart({
+                items: cartData.items || [],
+                amount: cartData.amount
+            }))
         } catch (error) {
             dispatch(cartShowActions.showNotification({
                 status: 'error',
@@ -37,7 +40,10 @@ export const sendCardData = (cart) => {
       const sendRequest = async () => {
         const response = await fetch('https://react-http-ff2de-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
           method: 'PUT',
-          body: JSON.stringify(cart),
+          body: JSON.stringify({
+            items: cart.items,
+            amount: cart.amount
+          }),
         })
         if (!response.ok) {
           throw new Error('Sending cart dara failed.')

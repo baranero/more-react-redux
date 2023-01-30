@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialAmountState = { amount:0, items: [] }
+const initialAmountState = { amount:0, items: [], changed: false }
 
 const amountSlice = createSlice({
   name: 'amount',
@@ -14,6 +14,7 @@ const amountSlice = createSlice({
       const newItem = action.payload
       const existingItem = state.items.find(item => item.id === newItem.id)
       state.amount++
+      state.changed = true
       if (!existingItem) {
         state.items.push({ 
           id: newItem.id, 
